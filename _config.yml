@@ -18,21 +18,75 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+# 수정하고 bundle exec jekyll serve 명령어로 로컬 서버를 실행하세요.
+# https://localhost:4000 으로 접속하면 수정된 사이트를 확인할 수 있습니다.
+
+title: 개발 블로그 by morivy42
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Jekyll과 GitHub Pages로 만든 개발 블로그입니다.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://morivy42.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: jekyllrb
+github_username:  Morivy42
+email: morivy42@gmail.com
 
 # Build settings
 theme: minima
+# remote_theme: pages-themes/hacker@v0.2.0
+# remote_theme: pages-themes/minimal@v0.2.0
+# remote_theme: "jekyll/minima@1e8a445"
 plugins:
   - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+
+# 📌 페이지네이션 (한 페이지당 5개 글 표시)
+paginate: 5
+paginate_path: "/page:num/"
+
+# 📌 Google Analytics (선택 사항)show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
+# google_analytics: [Your Google Analytics tracking ID]
+# google_analytics: "UA-XXXXXXXXX-X"
+
+# 📌 Markdown 설정
+markdown: kramdown
+highlighter: rouge
+
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+  # - title: "Projects"
+    # url: "/projects"
+  - title: "Blog"
+    url: "/blog"
+
+# 📌 기본 레이아웃 설정
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "morivy42"
+      comments: true
+      share: true
+
+# 📌 카테고리 및 태그 페이지 자동 생성
+collections:
+  categories:
+    output: true
+    permalink: /category/:name/
+  tags:
+    output: true
+    permalink: /tag/:name/
+
+# 📌 검색 기능 추가 (선택)
+# search_enabled: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.
